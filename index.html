@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula 1 2025 - ฤดูกาลที่ 75</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Added hamburger menu for mobile -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">F1 2025</div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#calendar">ปฏิทินการแข่ง</a></li>
+                <li><a href="#drivers">นักแข่ง</a></li>
+                <li><a href="#rules">กฎกติกา</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Added animated background elements -->
+    <section id="home" class="hero">
+        <div class="hero-bg-animation">
+            <div class="racing-line line-1"></div>
+            <div class="racing-line line-2"></div>
+            <div class="racing-line line-3"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">FORMULA 1 SEASON 2025</h1>
+            <p class="hero-subtitle">ฤดูกาลครบรอบ 75 ปี FIA Formula One World Championship</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="24">0</span>
+                    <span class="stat-label">สนามแข่ง</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="20">0</span>
+                    <span class="stat-label">นักแข่ง</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="10">0</span>
+                    <span class="stat-label">ทีม</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="6">0</span>
+                    <span class="stat-label">Sprint Races</span>
+                </div>
+            </div>
+            <!-- Added scroll indicator -->
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow-down"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendar" class="calendar-section">
+        <div class="container">
+            <h2 class="section-title">ปฏิทินการแข่ง 2025</h2>
+            <p class="section-subtitle">24 สนามแข่งข้ามทวีปใน 21 ประเทศ</p>
+            <!-- Added filter buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="sprint">Sprint Races</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+    </section>
+
+    <section id="drivers" class="drivers-section">
+        <div class="container">
+            <h2 class="section-title">นักแข่ง 2025</h2>
+            <p class="section-subtitle">20 นักแข่งจาก 10 ทีม</p>
+            <!-- Added team filter -->
+            <div class="team-filter">
+                <button class="team-filter-btn active" data-team="all">ทุกทีม</button>
+                <button class="team-filter-btn" data-team="team-red-bull" style="border-color: var(--red-bull);">Red Bull</button>
+                <button class="team-filter-btn" data-team="team-ferrari" style="border-color: var(--ferrari);">Ferrari</button>
+                <button class="team-filter-btn" data-team="team-mercedes" style="border-color: var(--mercedes);">Mercedes</button>
+                <button class="team-filter-btn" data-team="team-mclaren" style="border-color: var(--mclaren);">McLaren</button>
+                <button class="team-filter-btn" data-team="team-aston-martin" style="border-color: var(--aston-martin);">Aston Martin</button>
+            </div>
+            <div class="drivers-grid" id="driversGrid"></div>
+        </div>
+    </section>
+
+    <section id="rules" class="rules-section">
+        <div class="container">
+            <h2 class="section-title">กฎกติกา 2025</h2>
+            
+            <div class="rules-content">
+                <div class="rule-card">
+                    <h3>ระบบคะแนนการแข่งขัน</h3>
+                    <div class="points-table">
+                        <div class="points-row">
+                            <span class="position">1st</span>
+                            <span class="points">25 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">2nd</span>
+                            <span class="points">18 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">3rd</span>
+                            <span class="points">15 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">4th</span>
+                            <span class="points">12 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">5th</span>
+                            <span class="points">10 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">6th</span>
+                            <span class="points">8 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">7th</span>
+                            <span class="points">6 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">8th</span>
+                            <span class="points">4 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">9th</span>
+                            <span class="points">2 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">10th</span>
+                            <span class="points">1 คะแนน</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <h3>Sprint Race (6 สนาม)</h3>
+                    <div class="points-table">
+                        <div class="points-row">
+                            <span class="position">1st</span>
+                            <span class="points">8 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">2nd</span>
+                            <span class="points">7 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">3rd</span>
+                            <span class="points">6 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">4th</span>
+                            <span class="points">5 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">5th</span>
+                            <span class="points">4 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">6th</span>
+                            <span class="points">3 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">7th</span>
+                            <span class="points">2 คะแนน</span>
+                        </div>
+                        <div class="points-row">
+                            <span class="position">8th</span>
+                            <span class="points">1 คะแนน</span>
+                        </div>
+                    </div>
+                    <p class="sprint-venues">Sprint Venues: จีน, ไมอามี, ออสติน, บราซิล, กาตาร์, เบลเยียม</p>
+                </div>
+
+                <div class="rule-card highlight">
+                    <h3>กฎใหม่สำหรับปี 2025</h3>
+                    <ul class="new-rules">
+                        <li><strong>ยกเลิก Fastest Lap Point:</strong> ไม่มีคะแนนโบนัสสำหรับรอบเร็วที่สุดอีกต่อไป</li>
+                        <li><strong>Driver Cooling Systems:</strong> บังคับใช้ระบบระบายความร้อนเมื่ออุณหภูมิสูงกว่า 31°C</li>
+                        <li><strong>Rookie FP1 Running:</strong> ต้องให้นักแข่งมือใหม่ขับในเซสชั่น FP1 อย่างน้อย 2 ครั้งต่อทีมต่อฤดูกาล</li>
+                        <li><strong>TPC Restrictions:</strong> นักแข่งหลักจำกัดการทดสอบรถรุ่นเก่า 4 วันและไม่เกิน 1,000 กม. ต่อปี</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Added back to top button -->
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Formula 1 Thailand Fan Site. All rights reserved.</p>
+            <p>ข้อมูลจากเว็บไซต์ทางการ Formula 1 และ FIA</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

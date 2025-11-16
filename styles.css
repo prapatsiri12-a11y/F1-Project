@@ -1,0 +1,903 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg: #0a0a0a;
+    --color-text: #ffffff;
+    --color-text-secondary: #b0b0b0;
+    --color-primary: #e10600;
+    --color-secondary: #15151e;
+    --color-accent: #ff1e00;
+    
+    /* Team Colors */
+    --red-bull: #3671c6;
+    --ferrari: #e8002d;
+    --mercedes: #27f4d2;
+    --mclaren: #ff8000;
+    --aston-martin: #229971;
+    --alpine: #ff87bc;
+    --williams: #64c4ff;
+    --haas: #b6babd;
+    --sauber: #52e252;
+    --racing-bulls: #6692ff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Enhanced Navigation with mobile menu */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 10px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+}
+
+.nav-brand {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-text);
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-menu a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Enhanced Hero with racing lines animation */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 50%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.hero-bg-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.racing-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    animation: racingLine 3s linear infinite;
+    opacity: 0.3;
+}
+
+.line-1 {
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.line-2 {
+    top: 50%;
+    animation-delay: 1s;
+}
+
+.line-3 {
+    top: 80%;
+    animation-delay: 2s;
+}
+
+@keyframes racingLine {
+    0% {
+        left: -100%;
+        width: 100%;
+    }
+    100% {
+        left: 100%;
+        width: 100%;
+    }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 30, 0, 0.03) 0px,
+            transparent 1px,
+            transparent 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 30, 0, 0.03) 0px,
+            transparent 1px,
+            transparent 40px
+        );
+    opacity: 0.5;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    padding: 40px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff, #ff1e00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(225, 6, 0, 0.3)); }
+    50% { filter: brightness(1.2) drop-shadow(0 0 30px rgba(225, 6, 0, 0.5)); }
+}
+
+.hero-subtitle {
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: var(--color-text-secondary);
+    margin-bottom: 60px;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-number {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text-secondary);
+}
+
+/* Added scroll indicator animation */
+.scroll-indicator {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+}
+
+.mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--color-text-secondary);
+    border-radius: 12px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--color-primary);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(16px);
+    }
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--color-text-secondary);
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Sections */
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    margin-bottom: 60px;
+}
+
+/* Added filter buttons with animations */
+.filter-buttons,
+.team-filter {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn,
+.team-filter-btn {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.team-filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active,
+.team-filter-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 15px rgba(225, 6, 0, 0.4);
+}
+
+/* Calendar */
+.calendar-section {
+    background: var(--color-secondary);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.race-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.race-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-primary);
+    transition: height 0.3s ease;
+}
+
+.race-card.sprint::before {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+.race-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(225, 6, 0, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    border-radius: 50%;
+}
+
+.race-card:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.race-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(255, 30, 0, 0.5);
+    box-shadow: 0 20px 60px rgba(255, 30, 0, 0.3);
+}
+
+.race-card:hover::before {
+    height: 100%;
+    opacity: 0.05;
+}
+
+.race-round {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.race-name {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--color-text);
+}
+
+.race-circuit {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+}
+
+.race-date {
+    font-size: 15px;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.sprint-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 12px;
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(225, 6, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(225, 6, 0, 0.6);
+    }
+}
+
+/* Enhanced Drivers section with better animations */
+.drivers-section {
+    background: var(--color-bg);
+}
+
+.drivers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.driver-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    cursor: pointer;
+}
+
+.driver-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.driver-card:hover::before {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.driver-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.driver-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: all 0.4s ease;
+}
+
+.driver-card:hover .driver-image {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.driver-info {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    transform: translateY(-80px);
+}
+
+.driver-number {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    opacity: 0.3;
+    margin-bottom: -10px;
+    transition: all 0.3s ease;
+}
+
+.driver-card:hover .driver-number {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+.driver-name {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.driver-team {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.driver-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+}
+
+.driver-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.stat-label-small {
+    color: var(--color-text-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Enhanced team color borders with glow effect */
+.team-red-bull { border-left: 4px solid var(--red-bull); }
+.team-ferrari { border-left: 4px solid var(--ferrari); }
+.team-mercedes { border-left: 4px solid var(--mercedes); }
+.team-mclaren { border-left: 4px solid var(--mclaren); }
+.team-aston-martin { border-left: 4px solid var(--aston-martin); }
+.team-alpine { border-left: 4px solid var(--alpine); }
+.team-williams { border-left: 4px solid var(--williams); }
+.team-haas { border-left: 4px solid var(--haas); }
+.team-sauber { border-left: 4px solid var(--sauber); }
+.team-racing-bulls { border-left: 4px solid var(--racing-bulls); }
+
+.team-red-bull:hover { box-shadow: -4px 0 20px var(--red-bull), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-ferrari:hover { box-shadow: -4px 0 20px var(--ferrari), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-mercedes:hover { box-shadow: -4px 0 20px var(--mercedes), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-mclaren:hover { box-shadow: -4px 0 20px var(--mclaren), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-aston-martin:hover { box-shadow: -4px 0 20px var(--aston-martin), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-alpine:hover { box-shadow: -4px 0 20px var(--alpine), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-williams:hover { box-shadow: -4px 0 20px var(--williams), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-haas:hover { box-shadow: -4px 0 20px var(--haas), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-sauber:hover { box-shadow: -4px 0 20px var(--sauber), 0 20px 60px rgba(0, 0, 0, 0.5); }
+.team-racing-bulls:hover { box-shadow: -4px 0 20px var(--racing-bulls), 0 20px 60px rgba(0, 0, 0, 0.5); }
+
+.team-red-bull .driver-team { color: var(--red-bull); }
+.team-ferrari .driver-team { color: var(--ferrari); }
+.team-mercedes .driver-team { color: var(--mercedes); }
+.team-mclaren .driver-team { color: var(--mclaren); }
+.team-aston-martin .driver-team { color: var(--aston-martin); }
+.team-alpine .driver-team { color: var(--alpine); }
+.team-williams .driver-team { color: var(--williams); }
+.team-haas .driver-team { color: var(--haas); }
+.team-sauber .driver-team { color: var(--sauber); }
+.team-racing-bulls .driver-team { color: var(--racing-bulls); }
+
+/* Rules */
+.rules-section {
+    background: var(--color-secondary);
+}
+
+.rules-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.rule-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+}
+
+.rule-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.rule-card.highlight {
+    background: rgba(225, 6, 0, 0.05);
+    border-color: rgba(225, 6, 0, 0.3);
+}
+
+.rule-card.highlight:hover {
+    box-shadow: 0 12px 40px rgba(225, 6, 0, 0.2);
+}
+
+.rule-card h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.points-table {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.points-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.points-row:hover {
+    background: rgba(255, 30, 0, 0.1);
+    transform: translateX(8px);
+}
+
+.position {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.points {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--color-primary);
+}
+
+.sprint-venues {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.new-rules {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.new-rules li {
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.new-rules li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.new-rules strong {
+    color: var(--color-primary);
+}
+
+/* Added back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(225, 6, 0, 0.4);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(225, 6, 0, 0.6);
+}
+
+/* Footer */
+.footer {
+    background: var(--color-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer p {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+/* Added fade-in animation for scroll reveal */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu a {
+        font-size: 24px;
+    }
+    
+    .hero-stats {
+        gap: 30px;
+    }
+    
+    .stat-number {
+        font-size: 42px;
+    }
+    
+    .calendar-grid,
+    .drivers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .filter-buttons,
+    .team-filter {
+        gap: 8px;
+    }
+    
+    .filter-btn,
+    .team-filter-btn {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}
