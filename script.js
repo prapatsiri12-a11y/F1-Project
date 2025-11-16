@@ -35,7 +35,7 @@ const drivers = [
         teamClass: "team-red-bull",
         nationality: "NED",
         championships: 4,
-        podiums: 105,
+        podiums: 124,
         wins: 62
     },
     { 
@@ -85,7 +85,7 @@ const drivers = [
         teamClass: "team-mercedes",
         nationality: "ITA",
         championships: 0,
-        podiums: 0,
+        podiums: 2,
         wins: 0
     },
     { 
@@ -95,8 +95,8 @@ const drivers = [
         teamClass: "team-mclaren",
         nationality: "GBR",
         championships: 0,
-        podiums: 25,
-        wins: 4
+        podiums: 17,
+        wins: 7
     },
     { 
         number: 81, 
@@ -105,8 +105,8 @@ const drivers = [
         teamClass: "team-mclaren",
         nationality: "AUS",
         championships: 0,
-        podiums: 10,
-        wins: 2
+        podiums: 14,
+        wins: 7
     },
     { 
         number: 14, 
