@@ -901,3 +901,474 @@ section {
         font-size: 12px;
     }
 }
+/* =========================
+   Modal (Driver Detail)
+========================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  overflow-y: auto;
+}
+
+/* Modal Container */
+.modal-content {
+  background: var(--bg-card);
+  margin: 5% auto;
+  padding: 2rem;
+  border: 2px solid var(--accent);
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Opening Animation */
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.close {
+  color: var(--text-secondary);
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close:hover {
+  color: var(--accent);
+}
+
+/* Modal content layout */
+.modal-body {
+  clear: both;
+  padding-top: 1rem;
+}
+
+/* Header */
+.driver-detail-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.driver-detail-image {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 0 auto 1rem;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.driver-detail-number {
+  font-size: 5rem;
+  font-weight: bold;
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.driver-detail-name {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.driver-detail-team {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* Driver Info Grid */
+.driver-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.info-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Biography */
+.driver-bio {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.driver-bio h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* Car Info Section */
+.car-info {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid;
+}
+
+.car-info h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.car-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  margin: 1rem auto;
+  display: block;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.car-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.spec-item {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.spec-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.spec-value {
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+
+/* =========================
+   Back To Top
+========================= */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+}
+/* =========================
+   Contact Section
+========================= */
+.contact-section {
+  background: linear-gradient(135deg, rgba(225, 6, 0, 0.1), rgba(10, 10, 10, 0.9));
+  padding: 40px 0;
+  text-align: center;
+}
+
+.contact-section .section-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-section .section-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link svg {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover svg {
+  transform: scale(1.2);
+}
+
+.social-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1;
+}
+
+.social-link:hover::before {
+  transform: scale(1.1);
+}
+
+/* -------- Social Media Styles -------- */
+/* Facebook */
+.social-link.facebook {
+  background: rgba(24, 119, 242, 0.2);
+  border: 2px solid #1877f2;
+  color: #1877f2;
+}
+
+.social-link.facebook::before {
+  background: #1877f2;
+  opacity: 0;
+}
+
+.social-link.facebook:hover {
+  box-shadow: 0 0 25px rgba(24, 119, 242, 0.6), 0 0 50px rgba(24, 119, 242, 0.4);
+  border-color: #1877f2;
+  color: white;
+}
+
+.social-link.facebook:hover::before {
+  opacity: 1;
+}
+
+/* LINE */
+.social-link.line {
+  background: rgba(0, 195, 0, 0.2);
+  border: 2px solid #00c300;
+  color: #00c300;
+}
+
+.social-link.line::before {
+  background: #00c300;
+  opacity: 0;
+}
+
+.social-link.line:hover {
+  box-shadow: 0 0 25px rgba(0, 195, 0, 0.6), 0 0 50px rgba(0, 195, 0, 0.4);
+  border-color: #00c300;
+  color: white;
+}
+
+.social-link.line:hover::before {
+  opacity: 1;
+}
+
+/* Instagram */
+.social-link.instagram {
+  background: rgba(225, 48, 108, 0.2);
+  border: 2px solid #e1306c;
+  color: #e1306c;
+}
+
+.social-link.instagram::before {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  opacity: 0;
+}
+
+.social-link.instagram:hover {
+  box-shadow: 0 0 25px rgba(225, 48, 108, 0.6), 0 0 50px rgba(225, 48, 108, 0.4);
+  border-color: #e1306c;
+  color: white;
+}
+
+.social-link.instagram:hover::before {
+  opacity: 1;
+}
+
+/* =========================
+   Footer
+========================= */
+.footer {
+  background: var(--bg-card);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  border-top: 2px solid var(--accent);
+}
+
+.footer p {
+  color: var(--text-secondary);
+  margin: 0.5rem 0;
+}
+
+/* =========================
+   Responsive Styles
+========================= */
+@media (max-width: 768px) {
+  /* Navigation */
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+  }
+
+  .nav-menu.active {
+    max-height: 500px;
+  }
+
+  /* Hero Section */
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Modal */
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+    padding: 1.5rem;
+  }
+
+  .driver-detail-name {
+    font-size: 2rem;
+  }
+
+  .driver-detail-image {
+    width: 150px;
+    height: 200px;
+  }
+
+  .driver-image {
+    height: 200px;
+  }
+
+  .car-image {
+    max-width: 100%;
+  }
+}
+.modal {
+  display: none; /* เริ่มต้นซ่อนไว้ */
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  overflow-y: auto;
+}
+.modal-content {
+  background: var(--bg-card);
+  margin: 5% auto;
+  padding: 2rem;
+  border: 2px solid var(--accent);
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  animation: modalSlideIn 0.3s ease-out;
+}
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.close {
+  color: var(--text-secondary);
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: var(--accent);
+}
